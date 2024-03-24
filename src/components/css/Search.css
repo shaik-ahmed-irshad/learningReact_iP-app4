@@ -1,0 +1,36 @@
+/* root */
+:root {
+  --bg-light: #f5f5fc;
+  --bg-dark: #35353c;
+  --bg-darker: #15151c;
+  --font-body: #55555c;
+  --shadow: #c5c5cc;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 10px 15px;
+  font-weight:300;
+  font-size: large;
+  border: solid 2px  #f5f5fc;
+  border-radius: 17px;
+  background-color: #f5f5fc;
+  margin: 10px 15px;
+}
+
+input[type="submit"] {
+  font-size: medium;
+  padding: 13px 27px !important;
+  line-height: normal;
+  background: var(--bg-dark);
+  border-radius: 17px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 1px 7px 13px var(--shadow);
+  transition: all 0.7s ease;
+}
+
+input[type="submit"]:hover {
+  background: var(--bg-darker);
+  box-shadow: none;
+}

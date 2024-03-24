@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import UserItem from "./UserItem";
 import React from "react";
 import axios from "axios";
-import "./Card.css";
+import "./css/Card.css";
 import Loading from "./Loading";
 
 const UserCard = () => {
