@@ -6,6 +6,10 @@
   --font-body: #55555c;
   --shadow: #c5c5cc;
 }
+form {
+  background-color:#232323;
+  padding-bottom: 20px;
+}
 
 input[type="text"] {
   width: 60%;
@@ -22,15 +26,15 @@ input[type="submit"] {
   font-size: medium;
   padding: 13px 27px !important;
   line-height: normal;
-  background: var(--bg-dark);
+  background: var(--shadow);
   border-radius: 17px;
   text-decoration: none;
-  color: #fff;
-  box-shadow: 1px 7px 13px var(--shadow);
+  color: #232323;
+  box-shadow: 1px 7px 13px var(--bg-darker);
   transition: all 0.7s ease;
 }
 
 input[type="submit"]:hover {
-  background: var(--bg-darker);
+  background: #fff;
   box-shadow: none;
 }
