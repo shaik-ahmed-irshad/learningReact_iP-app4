@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
+  let date = new Date().getFullYear();
   return (
-    <div className='footer'> 
-      <h1>My Footer</h1>
+    <div className="footer">
+      © Copyright <span style={{ color: "#FF671F" }}>Code</span>
+      <span style={{ color: "#FFF" }}>For</span>
+      <span style={{ color: "#046A38" }}>India</span>
+      .com All Rights Reserved{" "}
+      <span style={{ color: "rgb(252, 110, 174)" }}>{date}</span>
     </div>
   );
-}
-
-export default Footer
+};
+// made on 30th March 2024
+export default Footer;
