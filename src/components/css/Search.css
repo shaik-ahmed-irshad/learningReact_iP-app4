@@ -6,12 +6,12 @@
   --font-body: #55555c;
   --shadow: #c5c5cc;
 }
-form {
+.search-form form{
   background-color: #232323;
   padding-bottom: 20px;
 }
 
-input[type="text"] {
+.search-form input[type="text"] {
   width: 60%;
   padding: 12px 15px;
   font-weight: 300;
@@ -29,7 +29,7 @@ input[type="text"] {
 .bg-dark {
   background-color: #232323;
 }
-.alert {
+.search-form .alert {
   width: 30%;
   padding: 10px 15px;
   font-weight: 500;
@@ -41,7 +41,7 @@ input[type="text"] {
   border: none;
 }
 
-input[type="submit"] {
+.search-form input[type="submit"] {
   font-size: medium;
   background-color:  white;
   padding: 13px 27px !important;
@@ -55,11 +55,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.search-form input[type="submit"]:hover {
 background-color:  rgb(168, 236, 193) ;
 }
 
-button {
+.search-form button {
   font-size: medium;
   width: 20%;
   padding: 13px 27px !important;
@@ -74,7 +74,7 @@ button {
   margin: 10px auto;
 }
 
-button:hover {
+.search-form button:hover {
  background-color:  rgb(168, 236, 193) ;
 
 }

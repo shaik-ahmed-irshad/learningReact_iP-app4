@@ -14,8 +14,8 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
       {loading && <Loading />}
       {!loading && (
         <div className={"  flex-container"}>
-            <input id="slider" className="customSlider" type="checkbox" />
-            <label for="slider"></label>
+          <input id="slider" className="customSlider" type="checkbox" />
+          <label for="slider"></label>
           <div className="wrapper">
             {/* <div className="top-icons">
                 <i className="fas fa-long-arrow-alt-left"></i>
@@ -37,17 +37,16 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
             </div>
 
             <div className="social-icons">
-              {user.twitter_url_username && (
+              {user.twitter_username && (
                 <div className="icon">
                   <a
-                    href={`https://twitter.com/${user.twitter_url_username}`}
+                    href={`https://twitter.com/${user.twitter_username}`}
                     target="_blank"
                     rel="noreferrer"
                   >
                     <i className="fab fa-twitter"></i>
-                    {user.twitter_url_username}
                   </a>
-                  <p>Twitter</p>
+                  <p>{user.twitter_username}</p>
                 </div>
               )}
 
@@ -72,7 +71,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
 
             <div className="social-icons">
               <div className="icon">
-                <a >
+                <a>
                   <i className="fa-solid fa-user"></i>
                 </a>
                 <h4>{user.following}</h4>
@@ -80,7 +79,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
               </div>
 
               <div className="icon">
-                <a >
+                <a>
                   <i className="fa-solid fa-users"></i>
                 </a>
                 <h4>{user.followers}</h4>
@@ -88,14 +87,14 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
               </div>
 
               <div className="icon">
-                <a >
+                <a>
                   <i className="fa-solid fa-flag"></i>
                 </a>
                 <h4>{user.public_repos}</h4>
                 <p>Public Reops</p>
               </div>
               <div className="icon">
-                <a >
+                <a>
                   <i className="fa-solid fa-flag"></i>
                 </a>
                 <h4>{user.public_gists}</h4>

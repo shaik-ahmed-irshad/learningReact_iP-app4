@@ -1,101 +1,160 @@
-import './css/Contact.css'
-import Loading from './Loading';
-// import {Link} from 'react-router-dom'
-const Contact = ({loading}) => {
+import React, { useState } from "react";
+import "./css/Contact.css";
+
+const Contact = () => {
+  const [formData, setFromData] = useState({
+    email: "",
+    name: "",
+    firstVisit: false,
+    foundNeeded: false,
+    primaryReason: "",
+    infoSeeking: "",
+  });
   return (
-    <center>
-      {loading && <Loading />}
-      {!loading && (
-        <div className="wrapper margin-class">
-          {/* -------------------------------------- */}
-          <div className="profile">
-            <img
-              src={"https://avatars.githubusercontent.com/u/162453728?v=4"}
-              className="thumbnail"
-              alt="DP"
-            />
-            <h3 className="name">Ahmed Irshad 👻</h3>
-            {/* {user.bio && <p className="title">{user.bio}</p>} */}
-            <p className="description">
-              mera description hai idher! samaj jane ki rehti 😎
-            </p>
-            <a href={"https://hoorain.app"} target="_blank" rel="noreferrer">
-              <button type="button" className="btn">
-                Visit My Portfolio
-              </button>
-            </a>
+    <div className="formbold-main-wrapper">
+      <div className="formbold-form-wrapper">
+        <form action="https://formbold.com/s/FORM_ID" method="POST">
+          {/* -------------- */}
+          <div className="formbold-form-title">
+            <h2 className="">React Form!</h2>
+            <p>Learning to handle forms in React</p>
           </div>
-
-          {/* <div className="social-icons">
-          {user.twitter_url_username && (
-            <div className="icon">
-              <a
-                href={`https://twitter.com/${user.twitter_url_username}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fab fa-twitter"></i>
-                {user.twitter_url_username}
-              </a>
-              <p>Twitter</p>
+          <div className="formbold-input-flex">
+            <div>
+              <label for="firstname" className="formbold-form-label">
+                Name
+              </label>
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                className="formbold-form-input"
+              />
             </div>
-          )}
-
-          {user.location && (
-            <div className="icon">
-              <a href="/" target="_blank" rel="noreferrer">
-                <i className="fa-solid fa-location-dot"></i>
-              </a>
-              <p>{user.location}</p>
+            <div>
+              <label for="email" className="formbold-form-label">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="formbold-form-input"
+              />
             </div>
-          )}
+          </div>
+          <div className="formbold-input-radio-wrapper">
+            <label for="ans" className="formbold-form-label">
+              Was this your first time visiting this website? (radio)
+            </label>
 
-          {user.blog && (
-            <div className="icon">
-              <a href={`${user.blog}`} target="_blank" rel="noreferrer">
-                <i className="fa-solid fa-globe"></i>
-              </a>
-              <p>{user.blog}</p>
+            <div className="formbold-radio-flex">
+              <div className="formbold-radio-group">
+                <label className="formbold-radio-label">
+                  <input
+                    className="formbold-input-radio"
+                    type="radio"
+                    name="ans"
+                    id="ans"
+                    value={"yes"}
+                  />
+                  Yes
+                  <span className="formbold-radio-checkmark"></span>
+                </label>
+              </div>
+
+              <div className="formbold-radio-group">
+                <label className="formbold-radio-label">
+                  <input
+                    className="formbold-input-radio"
+                    type="radio"
+                    name="ans"
+                    id="ans"
+                    value={"no"}
+                  />
+                  No
+                  <span className="formbold-radio-checkmark"></span>
+                </label>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+          <div className="formbold-input-radio-wrapper">
+            <label className="formbold-form-label">
+              Were you able to find what you need? (checkbox)
+            </label>
 
-        <div className="social-icons">
-          <div className="icon">
-            <a href="/">
-              <i className="fa-solid fa-user"></i>
-            </a>
-            <h4>{user.following}</h4>
-            <p>Following</p>
-          </div>
+            <div className="formbold-radio-group">
+              <label className="formbold-radio-label" for="yes">
+                <input
+                  className="formbold-input-radio"
+                  type="checkbox"
+                  name="yes"
+                  id="yes"
+                  value={"yes"}
+                />
+                Yes
+                <span className="formbold-radio-checkmark"></span>
+              </label>
+            </div>
 
-          <div className="icon">
-            <a href="/">
-              <i className="fa-solid fa-users"></i>
-            </a>
-            <h4>{user.followers}</h4>
-            <p>Followers</p>
-          </div>
+            <div className="formbold-radio-group">
+              <label className="formbold-radio-label" for="no">
+                <input
+                  className="formbold-input-radio"
+                  type="checkbox"
+                  name="no"
+                  id="no"
+                  value={"no"}
+                />
+                No
+                <span className="formbold-radio-checkmark"></span>
+              </label>
+            </div>
 
-          <div className="icon">
-            <a href="/">
-              <i className="fa-solid fa-flag"></i>
-            </a>
-            <h4>{user.public_repos}</h4>
-            <p>Public Reops</p>
+            <div className="formbold-radio-group">
+              <label className="formbold-radio-label" for="maybe">
+                <input
+                  className="formbold-input-radio"
+                  type="checkbox"
+                  name="maybe"
+                  id="maybe"
+                  value={"maybe"}
+                />
+                Maybe
+                <span className="formbold-radio-checkmark"></span>
+              </label>
+            </div>
           </div>
-          <div className="icon">
-            <a href="/">
-              <i className="fa-solid fa-flag"></i>
-            </a>
-            <h4>{user.public_gists}</h4>
-            <p>Public Gists</p>
+          <div>
+            <label for="message" className="formbold-form-label">
+              What is your primary reason to visit this website?
+            </label>
+            <textarea
+              rows="3"
+              name="message"
+              id="message"
+              placeholder="Type here..."
+              className="formbold-form-input"
+            ></textarea>
           </div>
-        </div> */}
-        </div>
-      )}
-    </center>
+          <div>
+            <label for="message" className="formbold-form-label">
+              If you could'nt find what you needed, please tell us what you were
+              seeking?
+            </label>
+            <textarea
+              rows="3"
+              name="message"
+              id="message"
+              placeholder="Type here..."
+              className="formbold-form-input"
+            ></textarea>
+          </div>
+          <input type="submit" value={"Submit Form"} className="formbold-btn" />
+        </form>
+      </div>
+    </div>
   );
-}
+};
 
-export default Contact
+export default Contact;

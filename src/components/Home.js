@@ -5,7 +5,7 @@ import Hero from './Hero';
 const Home = (props) => {
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ minHeight: "80vh" }}>
         <Hero />
         <Search
           searchUsers={props.searchUsers}
@@ -14,7 +14,9 @@ const Home = (props) => {
           showAlert={props.showAlert}
         />
         {props.loading && <Loading />}
-        {!props.loading && <UserCard users={props.users} loading={props.loading}/>}
+        {!props.loading && (
+          <UserCard users={props.users} loading={props.loading} />
+        )}
       </div>
     </>
   );

@@ -20,7 +20,7 @@ const Search = ({ searchUsers, clearUsers, showAlert, alert }) => {
   };
   return (
     <>
-      <center>
+      <center className="search-form">
         <Alert alert={alert} />
         <form onSubmit={onSubmitHandler}>
           <input
