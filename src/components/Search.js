@@ -1,39 +1,45 @@
 import { useState } from "react";
 import "./css/Search.css";
-import PropTypes from "prop-types";
+import Alert from "./Alert";
 
-const Search = ({searchUsers}) => {
+const Search = ({ searchUsers, clearUsers, showAlert, alert }) => {
   const [username, setUsername] = useState("");
   const onChangeHandler = (e) => {
-      setUsername(e.target.value);
-  }
+    setUsername(e.target.value);
+  };
 
-  const onSubmitHandler =  (e) => {
+  const onSubmitHandler = (e) => {
+
     e.preventDefault();
-    searchUsers(username);
-  }
+    if (username === "") {
+      showAlert({ msg: "UserName cannot be empty" });
+    } else {
+      searchUsers(username);
+      setUsername("");
+    }
+  };
   return (
     <>
       <center>
+        <Alert alert={alert} />
         <form onSubmit={onSubmitHandler}>
           <input
             type="text"
             name="fname"
             placeholder="Search Your GitHub user here .."
             onChange={onChangeHandler}
+            value={username}
+            autoComplete="off"
           />
           <input type="submit" value={"Search User"} />
+          <button className="clear-btn" onClick={clearUsers}>
+            Clear Users
+          </button>
         </form>
       </center>
     </>
   );
 };
-
-Search.propTypes = {
-  username: PropTypes.string.isRequired,
-  searchUsers: PropTypes.func.isRequired,
-};
-
 
 export default Search;
 

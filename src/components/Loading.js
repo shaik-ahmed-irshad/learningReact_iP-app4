@@ -1,7 +1,13 @@
-import loading from '../images/Loading.gif'
+import loading from "../images/Loading.gif";
 
-export default function Loading(){
-    return (
-        <img src={loading} alt="Loading.. " />
-    )
+export default function Loading() {
+  return (
+    <center>
+      <img
+        src={loading}
+        alt="Loading.. "
+        style={{ margin: "10px", borderRadius: "20px" }}
+      />
+    </center>
+  );
 }

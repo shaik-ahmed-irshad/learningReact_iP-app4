@@ -6,7 +6,7 @@ const UserCard = ({users}) => {
   return (
     <>
       <div className="main-div">
-        {users.map((user, i) => <UserItem key={i} user={user} />)};
+        {users.map((user, i) => <UserItem key={i} user={user} />)}
       </div>
     </>
   );

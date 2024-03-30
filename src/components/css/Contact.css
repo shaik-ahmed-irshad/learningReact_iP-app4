@@ -1,0 +1,52 @@
+.contact-card {
+  width: 30em;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  margin: 5em;
+}
+.contact-card:first-of-type {
+  margin-right: 25px;
+}
+
+.contact-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    margin-top: 30px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f1f1f1;
+  border-radius: 100%;
+}
+.contact-card .avatar {
+  background-image: url("https://avatars.githubusercontent.com/u/162453728?v=4");
+}
+
+
+.contact-h3 {
+  margin-top: 45px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #212121;
+  font-weight: 600;
+}
+  
+.contact-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #636363;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+
+}
+
+
