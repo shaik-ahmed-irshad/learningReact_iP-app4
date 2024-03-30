@@ -14,7 +14,7 @@ const Home = (props) => {
           showAlert={props.showAlert}
         />
         {props.loading && <Loading />}
-        {!props.loading && <UserCard users={props.users} />}
+        {!props.loading && <UserCard users={props.users} loading={props.loading}/>}
       </div>
     </>
   );

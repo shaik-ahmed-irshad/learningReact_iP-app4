@@ -81,7 +81,7 @@
 }
 
 .tpn_card .tpn_btn:hover {
-  background-color: rgba(145, 8, 8, 0.84);
+  background-color: rgb(245, 143, 189);
   box-shadow: none;
 }
 
@@ -96,8 +96,9 @@ p {
   display: flex;
   width: 80%;
   margin: auto;
-  margin-top: 5em;
-  margin-bottom: 10em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  gap: 0.1em;
 }
 .user-img_card {
   /* border-radius: 23px; */
@@ -119,7 +120,7 @@ p {
 
 .user-details_card {
   padding: 10px 20px;
-  width: 60%;
+  width: 50%;
   text-align: left;
   /* border-radius: 23px; */
   box-shadow: 2px 7px 20px hsla(333, 73%, 85%, 1);
@@ -167,8 +168,8 @@ p {
   content: "";
 }
 .customSlider + label:before {
-  top: -90px;
-  left: -60px;
+  top: -120px;
+  left: 0px;
   width: 80px;
   height: 40px;
   background: #ccc;
@@ -178,16 +179,16 @@ p {
 .customSlider + label:after {
   height: 34px;
   width: 34px;
-  top: -87px;
-  left: -55px;
+  top: -117px;
+  left: 5px;
   border-radius: 50%;
   transition: all 0.5s;
 }
 .customSlider:checked + label:after {
   height: 34px;
   width: 34px;
-  top: -87px;
-  left: -19px;
+  top: -117px;
+  left: 40px;
   border-radius: 50%;
 }
 .customSlider:checked ~ .wrapper {
@@ -215,7 +216,7 @@ p {
 }
 
 .wrapper {
-  width: 40%;
+  width: 50%;
   /* height: 540px; */
   background: #fdfeff;
   transition: background 0.6s ease;
@@ -243,7 +244,6 @@ p {
 .wrapper .profile:after {
   width: 100%;
   height: 1px;
-  content: " ";
   display: block;
   margin-top: 1.3em;
   background: #e9eff6;
@@ -352,6 +352,13 @@ p {
 .wrapper .social-icons .icon p {
   color: #666b7d;
   font-size: 12px;
+}
+#slider{
+  display: block;
+  text-align: center;
+}
+p{
+  color:  #666b7d;;
 }
 
 .concept {

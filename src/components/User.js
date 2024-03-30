@@ -13,7 +13,9 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <div className={" tpn_card-user flex-container"}>
+        <div className={"  flex-container"}>
+            <input id="slider" className="customSlider" type="checkbox" />
+            <label for="slider"></label>
           <div className="wrapper">
             {/* <div className="top-icons">
                 <i className="fas fa-long-arrow-alt-left"></i>
@@ -51,7 +53,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
 
               {user.location && (
                 <div className="icon">
-                  <a href="/" target="_blank" rel="noreferrer">
+                  <a>
                     <i className="fa-solid fa-location-dot"></i>
                   </a>
                   <p>{user.location}</p>
@@ -70,7 +72,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
 
             <div className="social-icons">
               <div className="icon">
-                <a href="/" rel='noreferrer'>
+                <a >
                   <i className="fa-solid fa-user"></i>
                 </a>
                 <h4>{user.following}</h4>
@@ -78,7 +80,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
               </div>
 
               <div className="icon">
-                <a href="/" rel='noreferrer'>
+                <a >
                   <i className="fa-solid fa-users"></i>
                 </a>
                 <h4>{user.followers}</h4>
@@ -86,14 +88,14 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
               </div>
 
               <div className="icon">
-                <a href="/" rel='noreferrer'>
+                <a >
                   <i className="fa-solid fa-flag"></i>
                 </a>
                 <h4>{user.public_repos}</h4>
                 <p>Public Reops</p>
               </div>
               <div className="icon">
-                <a href="/" rel='noreferrer'>
+                <a >
                   <i className="fa-solid fa-flag"></i>
                 </a>
                 <h4>{user.public_gists}</h4>
@@ -104,8 +106,8 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
 
           {/* -------------------------------------- */}
 
-          <div className="user-details_card">
-            {/* <h3>Top 5 repos</h3> */}
+          <div className="user-details_card wrapper">
+            <h2>Top 5 Repositories:</h2>
             {repos.map((repo, i) => (
               <>
                 <div key={i}>
@@ -123,6 +125,7 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
                 </div>
               </>
             ))}
+            <br />
             <a href={user.html_url} target="_blank" rel="noreferrer">
               <button type="button" className="btn">
                 Visit GiHhub

@@ -21,7 +21,7 @@ body {
     width: 50px;
 }
 .nav-title:hover{
- background-color:  rgba(200, 239, 214, 0.482) ;
+ background-color:  rgb(200, 239, 214) ;
   border-radius: 15px;
 }
 
@@ -56,7 +56,9 @@ body {
 }
 
 .nav > .nav-links > a:hover {
- background-color:  rgba(200, 239, 214, 0.482) ;
+  color: #232323;
+  font-weight: bolder;
+ background-color:  rgb(200, 239, 214) ;
   border-radius: 15px;
 }
 

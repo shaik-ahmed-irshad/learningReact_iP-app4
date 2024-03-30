@@ -16,6 +16,7 @@ function App() {
   const [alert, setAlert] = useState(null);
   const [repos, setRepos] = useState([]);
   useEffect(() => {
+    
     // Get User Data function with axios api
     const getData = async () => {
       try {
@@ -110,7 +111,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/"
+            path="/reactApps/github/"
             element={
               <Home
                 alert={alert}
@@ -123,10 +124,13 @@ function App() {
             }
           />
 
-          <Route path="/contact" element={<Contact loading={loading} />} />
-          <Route path="/about" element={<About />} />
           <Route
-            path="/user/:uname"
+            path="reactApps/github/contact"
+            element={<Contact loading={loading} />}
+          />
+          <Route path="reactApps/github/about" element={<About />} />
+          <Route
+            path="reactApps/github/user/:uname"
             element={
               <User
                 getUser={getUser}

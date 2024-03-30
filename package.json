@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://hoorain.app/reactApps/github",
+  "homepage": "http://hoorain.app/reactApps/github/",
   "eslintConfig": {
     "extends": [
       "react-app",
