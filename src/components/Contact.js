@@ -1,50 +1,72 @@
 import React, { useState } from "react";
 import "./css/Contact.css";
 
+/*
+form:
+Input tag attribute : name is used to capture input value by onChangeHandler
+=> input tag name should be same as component state.
+
+
+*/
 const Contact = () => {
   const [formData, setFromData] = useState({
-    email: "",
     name: "",
-    firstVisit: false,
-    foundNeeded: false,
+    email: "",
+    firstVisit: "",
+    foundNeeded: "",
     primaryReason: "",
     infoSeeking: "",
   });
+
+  const onChangeHandler = (e) => {
+    setFromData(()=> ({
+      ...formData,
+      [e.target.name]: [e.target.value]
+    }))
+  };
+
+  const onSubmitHandler = (e) => {
+
+    e.preventDefault();
+   console.log(formData);
+   
+     
+  };
+
   return (
     <div className="formbold-main-wrapper">
       <div className="formbold-form-wrapper">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
-          {/* -------------- */}
+        <form onSubmit={onSubmitHandler}>
           <div className="formbold-form-title">
             <h2 className="">React Form!</h2>
             <p>Learning to handle forms in React</p>
           </div>
           <div className="formbold-input-flex">
             <div>
-              <label for="firstname" className="formbold-form-label">
+              <label htmlFor="name" className="formbold-form-label">
                 Name
               </label>
               <input
+                onChange={onChangeHandler}
                 type="text"
-                name="firstname"
-                id="firstname"
+                name="name"
                 className="formbold-form-input"
               />
             </div>
             <div>
-              <label for="email" className="formbold-form-label">
+              <label htmlFor="email" className="formbold-form-label">
                 Email
               </label>
               <input
+                onChange={onChangeHandler}
                 type="email"
                 name="email"
-                id="email"
                 className="formbold-form-input"
               />
             </div>
           </div>
           <div className="formbold-input-radio-wrapper">
-            <label for="ans" className="formbold-form-label">
+            <label htmlFor="firstVisit" className="formbold-form-label">
               Was this your first time visiting this website? (radio)
             </label>
 
@@ -52,10 +74,10 @@ const Contact = () => {
               <div className="formbold-radio-group">
                 <label className="formbold-radio-label">
                   <input
+                    onChange={onChangeHandler}
                     className="formbold-input-radio"
                     type="radio"
-                    name="ans"
-                    id="ans"
+                    name="firstVisit"
                     value={"yes"}
                   />
                   Yes
@@ -66,10 +88,10 @@ const Contact = () => {
               <div className="formbold-radio-group">
                 <label className="formbold-radio-label">
                   <input
+                    onChange={onChangeHandler}
                     className="formbold-input-radio"
                     type="radio"
-                    name="ans"
-                    id="ans"
+                    name="firstVisit"
                     value={"no"}
                   />
                   No
@@ -84,68 +106,68 @@ const Contact = () => {
             </label>
 
             <div className="formbold-radio-group">
-              <label className="formbold-radio-label" for="yes">
+              <label className="formbold-radio-label">
                 <input
+                  onChange={onChangeHandler}
                   className="formbold-input-radio"
                   type="checkbox"
-                  name="yes"
-                  id="yes"
+                  name="foundNeeded"
                   value={"yes"}
                 />
                 Yes
-                <span className="formbold-radio-checkmark"></span>
+                <span className="formbold-radio-checkmark border-radius"></span>
               </label>
             </div>
 
             <div className="formbold-radio-group">
-              <label className="formbold-radio-label" for="no">
+              <label className="formbold-radio-label">
                 <input
+                  onChange={onChangeHandler}
                   className="formbold-input-radio"
                   type="checkbox"
-                  name="no"
-                  id="no"
+                  name="foundNeeded"
                   value={"no"}
                 />
                 No
-                <span className="formbold-radio-checkmark"></span>
+                <span className="formbold-radio-checkmark border-radius"></span>
               </label>
             </div>
 
             <div className="formbold-radio-group">
-              <label className="formbold-radio-label" for="maybe">
+              <label className="formbold-radio-label">
                 <input
+                  onChange={onChangeHandler}
                   className="formbold-input-radio"
                   type="checkbox"
-                  name="maybe"
-                  id="maybe"
+                  name="foundNeeded"
                   value={"maybe"}
                 />
                 Maybe
-                <span className="formbold-radio-checkmark"></span>
+                <span className="formbold-radio-checkmark border-radius"></span>
               </label>
             </div>
           </div>
           <div>
-            <label for="message" className="formbold-form-label">
+            <label htmlFor="primaryReason" className="formbold-form-label">
               What is your primary reason to visit this website?
             </label>
             <textarea
+              onChange={onChangeHandler}
               rows="3"
-              name="message"
-              id="message"
+              name="primaryReason"
               placeholder="Type here..."
               className="formbold-form-input"
             ></textarea>
           </div>
           <div>
-            <label for="message" className="formbold-form-label">
+            <label htmlFor="infoSeeking" className="formbold-form-label">
               If you could'nt find what you needed, please tell us what you were
               seeking?
             </label>
             <textarea
+              onChange={onChangeHandler}
               rows="3"
-              name="message"
-              id="message"
+              name="infoSeeking"
               placeholder="Type here..."
               className="formbold-form-input"
             ></textarea>
