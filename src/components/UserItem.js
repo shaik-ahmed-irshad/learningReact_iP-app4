@@ -1,12 +1,16 @@
-import {Link } from 'react-router-dom'
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./css/Card.css";
+import GithubContext from "../contexts/GitHub/githubContext";
 import PropTypes from "prop-types";
-import Loading from './Loading';
-const UserItem = ({ user, loading }) => {
+import Loading from "./Loading";
+const UserItem = ({ user }) => {
+  const githubContext = useContext(GithubContext);
+
   return (
     <>
-      {loading && <Loading />}
-      {!loading && (
+      {githubContext.loading && <Loading />}
+      {!githubContext.loading && (
         <div className={"tpn_card"}>
           <img
             alt="user-img"

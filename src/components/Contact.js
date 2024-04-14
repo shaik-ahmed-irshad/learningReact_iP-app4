@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./css/Contact.css";
 
 /*
@@ -9,6 +9,8 @@ Input tag attribute : name is used to capture input value by onChangeHandler
 
 */
 const Contact = () => {
+
+   
   const [formData, setFromData] = useState({
     name: "",
     email: "",
@@ -19,18 +21,15 @@ const Contact = () => {
   });
 
   const onChangeHandler = (e) => {
-    setFromData(()=> ({
+    setFromData(() => ({
       ...formData,
-      [e.target.name]: [e.target.value]
-    }))
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const onSubmitHandler = (e) => {
-
     e.preventDefault();
-   console.log(formData);
-   
-     
+    console.log(formData);
   };
 
   return (

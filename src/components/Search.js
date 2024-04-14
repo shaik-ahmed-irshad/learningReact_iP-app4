@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./css/Search.css";
+import GithubContext from "../contexts/GitHub/githubContext";
 import Alert from "./Alert";
 
-const Search = ({ searchUsers, clearUsers, showAlert, alert }) => {
+const Search = () => {
+
+  const githubContext = useContext(GithubContext);
+
   const [username, setUsername] = useState("");
+
   const onChangeHandler = (e) => {
     setUsername(e.target.value);
   };
@@ -12,16 +17,17 @@ const Search = ({ searchUsers, clearUsers, showAlert, alert }) => {
 
     e.preventDefault();
     if (username === "") {
-      showAlert({ msg: "UserName cannot be empty" });
+      // window.alert('username cannot be empty')
+      githubContext.showAlert({ msg: "UserName cannot be empty" });
     } else {
-      searchUsers(username);
+      githubContext.searchUsers(username);
       setUsername("");
     }
   };
   return (
     <>
       <center className="search-form">
-        <Alert alert={alert} />
+        <Alert alert={githubContext.alert} />
         <form onSubmit={onSubmitHandler}>
           <input
             type="text"
@@ -32,10 +38,10 @@ const Search = ({ searchUsers, clearUsers, showAlert, alert }) => {
             autoComplete="off"
           />
           <input type="submit" value={"Search User"} />
-          <button className="clear-btn" onClick={clearUsers}>
+        </form>
+          <button className="clear-btn" onClick={githubContext.clearUsers}>
             Clear Users
           </button>
-        </form>
       </center>
     </>
   );

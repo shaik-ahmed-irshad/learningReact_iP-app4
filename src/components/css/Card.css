@@ -359,12 +359,12 @@ p {
   color: #666b7d;
   font-size: 12px;
 }
-#slider{
+#slider {
   display: block;
   text-align: center;
 }
-p{
-  color:  #666b7d;;
+p {
+  color: #666b7d;
 }
 
 .concept {
@@ -381,7 +381,7 @@ p{
 
 .btn {
   color: #fff;
-  width: fit-content;
+  width: 160px;
   height: 42px;
   outline: none;
   border: none;
@@ -394,7 +394,14 @@ p{
   box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
   background: linear-gradient(to bottom right, #c90a6d, #ff48a0);
 }
-a{
+.btn:hover {
+  font-weight: bolder;
+  background: linear-gradient(to bottom right, #e30075, #ff017c);
+}
+.visit-btn a {
+  color: white;
+}
+a {
   text-decoration: none;
 }
 /* Extra small devices (phones, 650px and down) */
@@ -414,15 +421,15 @@ a{
   .user-details_card {
     width: 100%;
   }
-  .margin-class{
-   margin: 2em;
-   width: 80%;
-   border-radius: 20px;
+  .margin-class {
+    margin: 2em;
+    width: 80%;
+    border-radius: 20px;
   }
 }
 
-.margin-class{
+.margin-class {
   margin-top: 2em;
   margin-bottom: 2em;
   border-radius: 20px;
- }
+}

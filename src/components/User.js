@@ -1,21 +1,25 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import "./css/Card.css";
 import Loading from "./Loading";
-const User = ({ getUser, user, getRepos, repos, loading }) => {
+import GithubContext from "../contexts/GitHub/githubContext";
+
+const User = () => {
   const { uname } = useParams();
+  const githubContext = useContext(GithubContext);
+
   useEffect(() => {
-    getUser(uname);
-    getRepos(uname);
+    githubContext.getUser(uname);
+    githubContext.getRepos(uname);
+    // eslint-disable-next-line
   }, []);
-  console.log(user, "--------olalalaaa-------", repos);
   return (
     <>
-      {loading && <Loading />}
-      {!loading && (
+      {githubContext.loading && <Loading />}
+      {!githubContext.loading && (
         <div className={"  flex-container"}>
           <input id="slider" className="customSlider" type="checkbox" />
-          <label for="slider"></label>
+          <label htmlFor="slider"></label>
           <div className="wrapper">
             {/* <div className="top-icons">
                 <i className="fas fa-long-arrow-alt-left"></i>
@@ -24,9 +28,15 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
                 </div>  */}
             {/* -------------------------------------- */}
             <div className="profile">
-              <img src={user.avatar_url} className="thumbnail" alt="DP" />
-              <h3 className="name">{user.name}</h3>
-              {user.bio && <p className="title">{user.bio}</p>}
+              <img
+                src={githubContext.user.avatar_url}
+                className="thumbnail"
+                alt="DP"
+              />
+              <h3 className="name">{githubContext.user.name}</h3>
+              {githubContext.user.bio && (
+                <p className="title">{githubContext.user.bio}</p>
+              )}
               {/* <p className="description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
                 aliquam aliquid porro!
@@ -37,67 +47,71 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
             </div>
 
             <div className="social-icons">
-              {user.twitter_username && (
+              {githubContext.user.twitter_username && (
                 <div className="icon">
                   <a
-                    href={`https://twitter.com/${user.twitter_username}`}
+                    href={`https://twitter.com/${githubContext.user.twitter_username}`}
                     target="_blank"
                     rel="noreferrer"
                   >
                     <i className="fab fa-twitter"></i>
                   </a>
-                  <p>{user.twitter_username}</p>
+                  <p>{githubContext.user.twitter_username}</p>
                 </div>
               )}
 
-              {user.location && (
+              {githubContext.user.location && (
                 <div className="icon">
-                  <a>
+                  <a href=" ">
                     <i className="fa-solid fa-location-dot"></i>
                   </a>
-                  <p>{user.location}</p>
+                  <p>{githubContext.user.location}</p>
                 </div>
               )}
 
-              {user.blog && (
+              {githubContext.user.blog && (
                 <div className="icon">
-                  <a href={`${user.blog}`} target="_blank" rel="noreferrer">
+                  <a
+                    href={`${githubContext.user.blog}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fa-solid fa-globe"></i>
                   </a>
-                  <p>{user.blog}</p>
+                  <p>{githubContext.user.blog}</p>
                 </div>
               )}
             </div>
 
             <div className="social-icons">
               <div className="icon">
-                <a>
+                <a href=" ">
                   <i className="fa-solid fa-user"></i>
                 </a>
-                <h4>{user.following}</h4>
+                <h4>{githubContext.user.following}</h4>
                 <p>Following</p>
               </div>
 
               <div className="icon">
-                <a>
+                <a href=" ">
                   <i className="fa-solid fa-users"></i>
                 </a>
-                <h4>{user.followers}</h4>
+                <h4>{githubContext.user.followers}</h4>
                 <p>Followers</p>
               </div>
 
               <div className="icon">
-                <a>
+                <a href=" ">
                   <i className="fa-solid fa-flag"></i>
                 </a>
-                <h4>{user.public_repos}</h4>
+                <h4>{githubContext.user.public_repos}</h4>
                 <p>Public Reops</p>
               </div>
               <div className="icon">
-                <a>
+                <a href=" ">
                   <i className="fa-solid fa-flag"></i>
                 </a>
-                <h4>{user.public_gists}</h4>
+                <h4>{githubContext.user.public_gists}</h4>
                 <p>Public Gists</p>
               </div>
             </div>
@@ -107,29 +121,31 @@ const User = ({ getUser, user, getRepos, repos, loading }) => {
 
           <div className="user-details_card wrapper">
             <h2>Top 5 Repositories:</h2>
-            {repos.map((repo, i) => (
-              <>
-                <div key={i}>
-                  <h3>
-                    {i + 1}. {repo.name}
-                  </h3>
-                  <p>
-                    {repo.description}
-                    <span className="a-link">
-                      <a href={repo.html_url} target="_blanck" rel="noreferrer">
-                        Click Me To Visit
-                      </a>
-                    </span>
-                  </p>
-                </div>
-              </>
+            {githubContext.repos.map((repo, i) => (
+              <div key={repo.id}>
+                <h3>
+                  {i + 1}. {repo.name}
+                </h3>
+                <p>
+                  {repo.description}
+                  <span className="a-link">
+                    <a href={repo.html_url} target="_blanck" rel="noreferrer">
+                      Click Me To Visit
+                    </a>
+                  </span>
+                </p>
+              </div>
             ))}
             <br />
-            <a href={user.html_url} target="_blank" rel="noreferrer">
-              <button type="button" className="btn">
+            <button type="button" className="btn visit-btn">
+              <a
+                href={githubContext.user.html_url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Visit GiHhub
-              </button>
-            </a>
+              </a>
+            </button>
           </div>
         </div>
       )}

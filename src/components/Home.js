@@ -1,25 +1,23 @@
-import Search from './Search';
-import Loading from './Loading';
-import UserCard from './UserCard';
-import Hero from './Hero';
-const Home = (props) => {
+import { useContext } from "react";
+import Search from "./Search";
+import Loading from "./Loading";
+import UserCard from "./UserCard";
+import Hero from "./Hero";
+import GithubContext from "../contexts/GitHub/githubContext";
+
+const Home = () => {
+  const githubContext = useContext(GithubContext);
+
   return (
     <>
       <div className="container" style={{ minHeight: "80vh" }}>
         <Hero />
-        <Search
-          searchUsers={props.searchUsers}
-          clearUsers={props.clearUsers}
-          alert={props.alert}
-          showAlert={props.showAlert}
-        />
-        {props.loading && <Loading />}
-        {!props.loading && (
-          <UserCard users={props.users} loading={props.loading} />
-        )}
+        <Search />
+        {githubContext.loading && <Loading />}
+        {!githubContext.loading && <UserCard />}
       </div>
     </>
   );
-}
+};
 
-export default Home
+export default Home;

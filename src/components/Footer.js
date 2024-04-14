@@ -1,4 +1,3 @@
-import React from "react";
 
 const Footer = () => {
   let date = new Date().getFullYear();
@@ -7,7 +6,7 @@ const Footer = () => {
       © Copyright <span style={{ color: "#FF671F" }}>Code</span>
       <span style={{ color: "#FFF" }}>For</span>
       <span style={{ color: "#046A38" }}>India</span>
-      .com All Rights Reserved{" "}
+      .com | All Rights Reserved{" "}
       <span style={{ color: "rgb(252, 110, 174)" }}>{date}</span>
     </div>
   );

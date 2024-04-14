@@ -1,13 +1,16 @@
+import { useContext } from "react";
 import UserItem from "./UserItem";
 import "./css/Card.css";
+import GithubContext from "../contexts/GitHub/githubContext";
 
 
-const UserCard = ({users, loading}) => {
+const UserCard = () => {
+  const githubContext = useContext(GithubContext);
 
   return (
     <>
       <div className="main-div">
-        {users.map((user, i) => <UserItem key={i} user={user} loading={loading}/>)}
+        {githubContext.users.map((user, i) => <UserItem key={i} user={user} />)}
       </div>
     </>
   );
